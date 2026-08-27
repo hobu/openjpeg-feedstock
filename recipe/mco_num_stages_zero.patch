@@ -1,0 +1,19 @@
+diff --git a/src/lib/openjp2/j2k.c b/src/lib/openjp2/j2k.c
+index d4478af9..0d5e6572 100644
+--- a/src/lib/openjp2/j2k.c
++++ b/src/lib/openjp2/j2k.c
+@@ -6459,9 +6459,11 @@ static OPJ_BOOL opj_j2k_read_mco(opj_j2k_t *p_j2k,
+ 
+     l_tccp = l_tcp->tccps;
+ 
+-    for (i = 0; i < l_image->numcomps; ++i) {
+-        l_tccp->m_dc_level_shift = 0;
+-        ++l_tccp;
++    if (l_nb_stages > 0) {
++        for (i = 0; i < l_image->numcomps; ++i) {
++            l_tccp->m_dc_level_shift = 0;
++            ++l_tccp;
++        }
+     }
+ 
+     if (l_tcp->m_mct_decoding_matrix) {

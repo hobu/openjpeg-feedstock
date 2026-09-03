@@ -12,3 +12,10 @@ github:
   branch_name: main
   tooling_branch_name: main
 test: native_and_emulated
+provider:
+  linux: azure
+  linux_aarch64: azure
+  linux_ppc64le: azure
+  osx: azure
+  win: azure
+
